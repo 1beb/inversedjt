@@ -9,13 +9,19 @@ from src.config import RISK_FREE_RATE, SPY_TICKER
 from src.options_pricer import black_scholes_price, calculate_option_pnl
 
 
-def get_spy_prices(start: str = "2026-01-01", end: str = "2026-12-31") -> pd.DataFrame:
-    """Fetch SPY OHLC data from yfinance."""
-    ticker = yf.Ticker(SPY_TICKER)
+def get_prices(ticker_symbol: str = SPY_TICKER, start: str = "2026-01-01", end: str = "2026-12-31") -> pd.DataFrame:
+    """Fetch OHLC data from yfinance for any ticker."""
+    ticker = yf.Ticker(ticker_symbol)
     df = ticker.history(start=start, end=end)
     # Remove timezone info to avoid tz-naive vs tz-aware comparison issues
-    df.index = df.index.tz_localize(None)
+    if df.index.tz is not None:
+        df.index = df.index.tz_localize(None)
     return df
+
+
+def get_spy_prices(start: str = "2026-01-01", end: str = "2026-12-31") -> pd.DataFrame:
+    """Fetch SPY OHLC data from yfinance."""
+    return get_prices(SPY_TICKER, start, end)
 
 
 def estimate_volatility(prices: pd.DataFrame, window: int = 20) -> pd.Series:

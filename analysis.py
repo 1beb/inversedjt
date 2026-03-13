@@ -33,12 +33,18 @@ def load_or_scrape_speeches() -> list[dict]:
     sys.exit(1)
 
 
-def extract_signals(speeches: list[dict]) -> dict[str, str]:
-    """Extract trade signals from speeches."""
+def extract_signals(speeches: list[dict], believe: bool = False) -> dict[str, str]:
+    """Extract trade signals from speeches.
+
+    If believe=True, flip signals: trust Trump's claims instead of betting against them.
+    """
+    flip = {"put": "call", "call": "put"}
     signals = {}
     for speech in speeches:
         signal = extract_signal(speech["text"])
         if signal:
+            if believe:
+                signal = flip[signal]
             date = speech["date"]
             # Only one trade per day (first speech wins)
             if date not in signals:
@@ -47,10 +53,10 @@ def extract_signals(speeches: list[dict]) -> dict[str, str]:
     return signals
 
 
-def print_summary(trades: pd.DataFrame):
+def print_summary(trades: pd.DataFrame, label: str = "INVERSE TRUMP"):
     """Print summary statistics."""
     print("\n" + "=" * 70)
-    print("INVERSE TRUMP OPTIONS STRATEGY - RESULTS")
+    print(f"{label} OPTIONS STRATEGY - RESULTS")
     print("=" * 70)
     print(f"Total signal days: {len(trades)}")
     print(f"Starting capital: ${STARTING_CAPITAL:,.0f}")
@@ -142,38 +148,93 @@ def plot_results(trades: pd.DataFrame, spy_prices: pd.DataFrame):
     print("Chart saved to data/trades/results.png")
 
 
+def plot_comparison(inverse_trades: pd.DataFrame, believe_trades: pd.DataFrame, spy_prices: pd.DataFrame):
+    """Generate comparison chart of both strategies."""
+    fig, axes = plt.subplots(2, 1, figsize=(12, 8))
+
+    for trades, style, prefix in [
+        (inverse_trades, "-", "Inverse"),
+        (believe_trades, "--", "Believe"),
+    ]:
+        for window, color, label in [
+            ("next_day", "red", "Next-Day"),
+            ("end_of_week", "blue", "End-of-Week"),
+            ("thirty_day", "green", "30-Day"),
+        ]:
+            col = f"portfolio_{window}"
+            if col in trades.columns:
+                values = pd.concat([
+                    pd.Series([STARTING_CAPITAL], index=[trades["trade_date"].iloc[0]]),
+                    trades.set_index("trade_date")[col],
+                ])
+                axes[0].plot(values.index, values.values, color=color, linestyle=style,
+                           label=f"{prefix} {label}", marker="o", markersize=2)
+
+    spy_start = spy_prices["Close"].iloc[0]
+    spy_baseline = (spy_prices["Close"] / spy_start) * STARTING_CAPITAL
+    axes[0].plot(spy_baseline.index, spy_baseline.values, color="gray", linestyle=":", label="SPY Buy & Hold", alpha=0.7)
+    axes[0].axhline(y=STARTING_CAPITAL, color="black", linestyle=":", alpha=0.3)
+    axes[0].set_title("Inverse Trump (solid) vs Believe Trump (dashed) vs SPY")
+    axes[0].set_ylabel("Portfolio Value ($)")
+    axes[0].legend(fontsize=7, ncol=3)
+    axes[0].grid(True, alpha=0.3)
+
+    # Bar chart comparing final returns
+    windows = ["next_day", "end_of_week", "thirty_day"]
+    labels = ["Next-Day", "End-of-Week", "30-Day"]
+    inverse_returns = [(inverse_trades[f"portfolio_{w}"].iloc[-1] - STARTING_CAPITAL) / STARTING_CAPITAL * 100 for w in windows]
+    believe_returns = [(believe_trades[f"portfolio_{w}"].iloc[-1] - STARTING_CAPITAL) / STARTING_CAPITAL * 100 for w in windows]
+
+    x = range(len(labels))
+    width = 0.35
+    axes[1].bar([i - width/2 for i in x], inverse_returns, width, label="Inverse Trump", color="steelblue")
+    axes[1].bar([i + width/2 for i in x], believe_returns, width, label="Believe Trump", color="coral")
+    axes[1].set_xticks(list(x))
+    axes[1].set_xticklabels(labels)
+    axes[1].set_ylabel("Total Return (%)")
+    axes[1].set_title("Total Return Comparison")
+    axes[1].legend()
+    axes[1].grid(True, alpha=0.3, axis="y")
+    axes[1].axhline(y=0, color="black", linewidth=0.5)
+
+    plt.tight_layout()
+    plt.savefig("data/trades/comparison.png", dpi=150)
+    print("Comparison chart saved to data/trades/comparison.png")
+
+
 def main():
     # 1. Get speeches
     speeches = load_or_scrape_speeches()
     print(f"\nLoaded {len(speeches)} speeches")
 
-    # 2. Extract signals
-    print("\nExtracting trade signals...")
-    signals = extract_signals(speeches)
-    print(f"\n{len(signals)} trading days identified")
-
-    if not signals:
-        print("No trade signals found. Check speech data and claim categories.")
-        sys.exit(1)
-
-    # 3. Get SPY prices
+    # 2. Get SPY prices
     print("\nFetching SPY price data...")
     spy_prices = get_spy_prices("2026-01-01", "2026-12-31")
     print(f"Got {len(spy_prices)} trading days of SPY data")
 
-    # 4. Run backtest
-    print("\nRunning backtest...")
-    trades = run_backtest(spy_prices, signals, STARTING_CAPITAL, BET_FRACTION)
+    # 3. Inverse strategy (bet against Trump)
+    print("\n--- INVERSE STRATEGY (bet against claims) ---")
+    print("Extracting trade signals...")
+    inverse_signals = extract_signals(speeches, believe=False)
+    print(f"{len(inverse_signals)} trading days identified")
 
-    # 5. Save trade log
-    trades.to_csv("data/trades/trade_log.csv", index=False)
-    print("Trade log saved to data/trades/trade_log.csv")
+    inverse_trades = run_backtest(spy_prices, inverse_signals, STARTING_CAPITAL, BET_FRACTION)
+    inverse_trades.to_csv("data/trades/trade_log_inverse.csv", index=False)
+    print_summary(inverse_trades, label="INVERSE TRUMP")
 
-    # 6. Print summary
-    print_summary(trades)
+    # 4. Believe strategy (trust Trump's claims)
+    print("\n--- BELIEVE STRATEGY (trust claims) ---")
+    print("Extracting trade signals...")
+    believe_signals = extract_signals(speeches, believe=True)
+    print(f"{len(believe_signals)} trading days identified")
 
-    # 7. Plot
-    plot_results(trades, spy_prices)
+    believe_trades = run_backtest(spy_prices, believe_signals, STARTING_CAPITAL, BET_FRACTION)
+    believe_trades.to_csv("data/trades/trade_log_believe.csv", index=False)
+    print_summary(believe_trades, label="BELIEVE TRUMP")
+
+    # 5. Charts
+    plot_results(inverse_trades, spy_prices)
+    plot_comparison(inverse_trades, believe_trades, spy_prices)
 
 
 if __name__ == "__main__":
