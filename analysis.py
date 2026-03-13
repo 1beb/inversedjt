@@ -18,7 +18,8 @@ from src.scraper import scrape_all
 def load_or_scrape_speeches() -> list[dict]:
     """Load cached speeches or scrape fresh."""
     speech_dir = Path("data/speeches")
-    existing = sorted(speech_dir.glob("*.json"))
+    # Match files like 2026-01-05_slug.json, exclude listing.json
+    existing = sorted(f for f in speech_dir.glob("2026-*.json"))
 
     if existing:
         print(f"Found {len(existing)} cached speeches")
@@ -28,8 +29,8 @@ def load_or_scrape_speeches() -> list[dict]:
                 speeches.append(json.load(fh))
         return speeches
 
-    print("Scraping speeches from Rev.com...")
-    return scrape_all(2026)
+    print("No cached speeches found. Run scrape_transcripts.py first.")
+    sys.exit(1)
 
 
 def extract_signals(speeches: list[dict]) -> dict[str, str]:

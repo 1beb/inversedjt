@@ -12,7 +12,10 @@ from src.options_pricer import black_scholes_price, calculate_option_pnl
 def get_spy_prices(start: str = "2026-01-01", end: str = "2026-12-31") -> pd.DataFrame:
     """Fetch SPY OHLC data from yfinance."""
     ticker = yf.Ticker(SPY_TICKER)
-    return ticker.history(start=start, end=end)
+    df = ticker.history(start=start, end=end)
+    # Remove timezone info to avoid tz-naive vs tz-aware comparison issues
+    df.index = df.index.tz_localize(None)
+    return df
 
 
 def estimate_volatility(prices: pd.DataFrame, window: int = 20) -> pd.Series:
