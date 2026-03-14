@@ -80,6 +80,7 @@ def run_backtest(
     signals: dict[str, str],
     starting_capital: float,
     bet_fraction: float,
+    iv_override: float | None = None,
 ) -> pd.DataFrame:
     """Run the backtest simulation across all 3 expiry windows.
 
@@ -88,6 +89,7 @@ def run_backtest(
         signals: dict mapping date strings to "put" or "call"
         starting_capital: initial portfolio value
         bet_fraction: fraction of portfolio to bet per trade
+        iv_override: if set, use this implied volatility instead of historical vol
     """
     vol = estimate_volatility(prices)
 
@@ -111,7 +113,10 @@ def run_backtest(
             trade_date = future[0]
 
         spot = prices.loc[trade_date, "Open"]
-        current_vol = vol.loc[:trade_date].dropna().iloc[-1] if len(vol.loc[:trade_date].dropna()) > 0 else 0.20
+        if iv_override is not None:
+            current_vol = iv_override
+        else:
+            current_vol = vol.loc[:trade_date].dropna().iloc[-1] if len(vol.loc[:trade_date].dropna()) > 0 else 0.20
         strike = round(spot)  # ATM
 
         trade_row = {

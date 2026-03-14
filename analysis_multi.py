@@ -1,4 +1,8 @@
-"""Run inverse Trump strategy across multiple ETFs and compare results."""
+"""Run inverse Trump strategy across multiple ETFs and compare results.
+
+Uses real implied volatility from current options chains where available,
+falling back to historical realized volatility otherwise.
+"""
 import json
 import sys
 from pathlib import Path
@@ -7,6 +11,7 @@ import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 import pandas as pd
+import yfinance as yf
 
 from src.backtester import get_prices, run_backtest
 from src.claims import extract_signal
@@ -30,6 +35,31 @@ TICKERS = {
     "SPXL": "3x S&P 500",
     "TNA": "3x Russell 2000",
 }
+
+
+def get_current_iv(ticker_symbol: str) -> float | None:
+    """Fetch current ATM implied volatility from yfinance options chain."""
+    try:
+        t = yf.Ticker(ticker_symbol)
+        price = t.info.get("regularMarketPrice")
+        if not price:
+            return None
+        exps = t.options
+        if not exps:
+            return None
+        # Use nearest expiry for short-term IV
+        chain = t.option_chain(exps[0])
+        puts = chain.puts
+        if puts.empty:
+            return None
+        # Find ATM put
+        atm = puts.iloc[(puts["strike"] - price).abs().argsort()[:1]]
+        iv = atm["impliedVolatility"].values[0]
+        if iv and iv > 0:
+            return float(iv)
+    except Exception:
+        pass
+    return None
 
 
 def load_speeches() -> list[dict]:
@@ -65,12 +95,26 @@ def main():
 
     inverse_signals = extract_signals_from_speeches(speeches, believe=False)
     believe_signals = extract_signals_from_speeches(speeches, believe=True)
-    print(f"{len(inverse_signals)} signal days\n")
+    print(f"{len(inverse_signals)} signal days")
 
+    # Fetch implied volatilities
+    print("\nFetching implied volatilities from options chains...")
+    iv_map = {}
+    for ticker in TICKERS:
+        iv = get_current_iv(ticker)
+        iv_map[ticker] = iv
+        if iv:
+            print(f"  {ticker}: IV = {iv*100:.0f}%")
+        else:
+            print(f"  {ticker}: IV unavailable, using historical vol")
+
+    print()
     results = []
 
     for ticker, name in TICKERS.items():
-        print(f"Fetching {ticker} ({name})...", end=" ", flush=True)
+        iv = iv_map.get(ticker)
+        iv_label = f"IV={iv*100:.0f}%" if iv else "hist vol"
+        print(f"Fetching {ticker} ({name}, {iv_label})...", end=" ", flush=True)
         try:
             prices = get_prices(ticker, "2026-01-01", "2026-12-31")
             if len(prices) < 10:
@@ -80,12 +124,13 @@ def main():
             print(f"ERROR: {e}")
             continue
 
-        inverse_trades = run_backtest(prices, inverse_signals, STARTING_CAPITAL, BET_FRACTION)
-        believe_trades = run_backtest(prices, believe_signals, STARTING_CAPITAL, BET_FRACTION)
+        inverse_trades = run_backtest(prices, inverse_signals, STARTING_CAPITAL, BET_FRACTION, iv_override=iv)
+        believe_trades = run_backtest(prices, believe_signals, STARTING_CAPITAL, BET_FRACTION, iv_override=iv)
 
         for window in ["next_day", "end_of_week", "thirty_day"]:
             port_col = f"portfolio_{window}"
             pnl_col = f"pnl_{window}"
+            comm_col = f"commission_{window}"
 
             if port_col not in inverse_trades.columns:
                 continue
@@ -97,15 +142,18 @@ def main():
 
             inv_wins = (inverse_trades[pnl_col] > 0).sum()
             inv_losses = (inverse_trades[pnl_col] < 0).sum()
+            inv_commissions = inverse_trades[comm_col].sum() if comm_col in inverse_trades.columns else 0
 
             results.append({
                 "ticker": ticker,
                 "name": name,
+                "iv_used": f"{iv*100:.0f}%" if iv else "hist",
                 "window": window,
                 "inverse_return": inv_return,
                 "inverse_final": inv_final,
                 "inverse_wins": inv_wins,
                 "inverse_losses": inv_losses,
+                "inverse_commissions": inv_commissions,
                 "believe_return": bel_return,
                 "believe_final": bel_final,
                 "spread": inv_return - bel_return,
@@ -120,15 +168,15 @@ def main():
     for window in ["next_day", "end_of_week", "thirty_day"]:
         wdf = df[df["window"] == window].sort_values("inverse_return", ascending=False)
         label = window.replace("_", " ").title()
-        print(f"\n{'=' * 80}")
-        print(f"  {label} Expiry")
-        print(f"{'=' * 80}")
-        print(f"  {'Ticker':<8} {'Name':<28} {'Inverse':>10} {'Believe':>10} {'Spread':>10} {'W/L':>8}")
-        print(f"  {'-'*8} {'-'*28} {'-'*10} {'-'*10} {'-'*10} {'-'*8}")
+        print(f"\n{'=' * 90}")
+        print(f"  {label} Expiry (using real implied volatility for pricing)")
+        print(f"{'=' * 90}")
+        print(f"  {'Ticker':<6} {'Name':<25} {'IV':>6} {'Inverse':>10} {'Believe':>10} {'Spread':>10} {'W/L':>8}")
+        print(f"  {'-'*6} {'-'*25} {'-'*6} {'-'*10} {'-'*10} {'-'*10} {'-'*8}")
         for _, row in wdf.iterrows():
-            print(f"  {row['ticker']:<8} {row['name']:<28} {row['inverse_return']:>+9.1f}% {row['believe_return']:>+9.1f}% {row['spread']:>+9.1f}% {int(row['inverse_wins'])}W/{int(row['inverse_losses'])}L")
+            print(f"  {row['ticker']:<6} {row['name']:<25} {row['iv_used']:>6} {row['inverse_return']:>+9.1f}% {row['believe_return']:>+9.1f}% {row['spread']:>+9.1f}% {int(row['inverse_wins'])}W/{int(row['inverse_losses'])}L")
 
-    # Chart: comparison bar chart for next-day expiry
+    # Chart
     fig, axes = plt.subplots(3, 1, figsize=(14, 12))
 
     for idx, window in enumerate(["next_day", "end_of_week", "thirty_day"]):
@@ -141,9 +189,9 @@ def main():
         axes[idx].barh([i + height/2 for i in y], wdf["inverse_return"], height, label="Inverse Trump", color="steelblue")
         axes[idx].barh([i - height/2 for i in y], wdf["believe_return"], height, label="Believe Trump", color="coral")
         axes[idx].set_yticks(list(y))
-        axes[idx].set_yticklabels([f"{row['ticker']}" for _, row in wdf.iterrows()])
+        axes[idx].set_yticklabels([f"{row['ticker']} ({row['iv_used']})" for _, row in wdf.iterrows()])
         axes[idx].set_xlabel("Return (%)")
-        axes[idx].set_title(f"{label} Expiry")
+        axes[idx].set_title(f"{label} Expiry (Real IV Pricing)")
         axes[idx].axvline(x=0, color="black", linewidth=0.5)
         axes[idx].legend(loc="lower right")
         axes[idx].grid(True, alpha=0.3, axis="x")
