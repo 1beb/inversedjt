@@ -86,14 +86,19 @@ def print_summary(trades: pd.DataFrame, label: str = "INVERSE TRUMP"):
         drawdown = (portfolio_series - peak) / peak * 100
         max_dd = drawdown.min()
 
-        label = window.replace("_", " ").title()
-        print(f"--- {label} Expiry ---")
+        # Commissions
+        comm_col = f"commission_{window}"
+        total_commissions = trades[comm_col].sum() if comm_col in trades.columns else 0
+
+        window_label = window.replace("_", " ").title()
+        print(f"--- {window_label} Expiry ---")
         print(f"  Final portfolio: ${final_portfolio:,.0f}")
         print(f"  Total return:    {total_return:+.1f}%")
         print(f"  Win rate:        {win_rate:.0f}% ({wins}W / {losses}L / {flat}F)")
         print(f"  Max drawdown:    {max_dd:.1f}%")
         print(f"  Best trade:      ${trades[pnl_col].max():,.0f}")
         print(f"  Worst trade:     ${trades[pnl_col].min():,.0f}")
+        print(f"  Total commissions: ${total_commissions:,.0f}")
         print()
 
 

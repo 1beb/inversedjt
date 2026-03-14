@@ -5,8 +5,27 @@ from datetime import timedelta
 import pandas as pd
 import yfinance as yf
 
-from src.config import RISK_FREE_RATE, SPY_TICKER
+from src.config import (
+    COMMISSION_BASE, COMMISSION_MIN, COMMISSION_PER_CONTRACT,
+    RISK_FREE_RATE, SPY_TICKER,
+)
 from src.options_pricer import black_scholes_price, calculate_option_pnl
+
+
+def calculate_commission(num_contracts: int) -> float:
+    """Calculate Questrade options commission for a single order."""
+    if num_contracts <= 0:
+        return 0
+    return max(COMMISSION_MIN, COMMISSION_BASE + num_contracts * COMMISSION_PER_CONTRACT)
+
+
+def option_type_is_itm(option_type: str, strike: float, expiry_price: float | None) -> bool:
+    """Check if option expires in the money (needs closing trade)."""
+    if expiry_price is None:
+        return False
+    if option_type == "call":
+        return expiry_price > strike
+    return expiry_price < strike
 
 
 def get_prices(ticker_symbol: str = SPY_TICKER, start: str = "2026-01-01", end: str = "2026-12-31") -> pd.DataFrame:
@@ -138,13 +157,24 @@ def run_backtest(
                     num_contracts=num_contracts,
                 )
 
-            portfolios[window_name] += pnl
+            # Commissions: pay on open, pay on close (unless expires worthless)
+            open_commission = calculate_commission(num_contracts)
+            if option_type_is_itm(signal, strike, expiry_price):
+                close_commission = calculate_commission(num_contracts)
+            else:
+                close_commission = 0  # expires worthless, no closing trade
+            total_commission = open_commission + close_commission
+
+            net_pnl = pnl - total_commission
+            portfolios[window_name] += net_pnl
 
             trade_row[f"option_price_{window_name}"] = option_price
             trade_row[f"num_contracts_{window_name}"] = num_contracts
             trade_row[f"dte_{window_name}"] = dte
             trade_row[f"expiry_price_{window_name}"] = expiry_price
-            trade_row[f"pnl_{window_name}"] = pnl
+            trade_row[f"pnl_gross_{window_name}"] = pnl
+            trade_row[f"commission_{window_name}"] = total_commission
+            trade_row[f"pnl_{window_name}"] = net_pnl
             trade_row[f"portfolio_{window_name}"] = portfolios[window_name]
 
         trades.append(trade_row)

@@ -57,3 +57,8 @@ CLAIM_CATEGORIES = {
 
 SPY_TICKER = "SPY"
 RISK_FREE_RATE = 0.05  # approximate 2026 rate
+
+# Questrade commission structure
+COMMISSION_BASE = 9.95  # flat fee per trade
+COMMISSION_PER_CONTRACT = 1.00  # per contract
+COMMISSION_MIN = 9.95  # minimum per trade
