@@ -1,0 +1,771 @@
+{
+  "2026-01-05_air-force-one-press-gaggle-1-04-26": {
+    "date": "2026-01-05",
+    "title": "Air Force One Press Gaggle 1/04/26",
+    "cost_usd": 0.23465175,
+    "bullishness": 4,
+    "salience": 7,
+    "topics": [
+      "military",
+      "geopolitics",
+      "oil",
+      "tariffs",
+      "trade",
+      "economy",
+      "deals",
+      "immigration"
+    ],
+    "rationale": "Heavy military/geopolitical triumphalism (Maduro capture, Cuba \"ready to fall\", drugs by sea down 97%) tied to economic claims: record $20 trillion in investment \"all because of tariffs,\" oil companies poised to rebuild Venezuela and \"take our oil back,\" plus sanctions/tariffs pressuring Russia and India."
+  },
+  "2026-01-05_trump-speaks-after-us-strikes-venezuela-and-captures-maduro": {
+    "date": "2026-01-05",
+    "title": "Trump speaks after US strikes Venezuela and Captures Maduro",
+    "cost_usd": 0.14911475000000002,
+    "bullishness": 4,
+    "salience": 7,
+    "topics": [
+      "military",
+      "geopolitics",
+      "oil",
+      "energy",
+      "economy",
+      "tariffs",
+      "deals",
+      "immigration"
+    ],
+    "rationale": "Heavy military/geopolitical triumphalism (Maduro capture, Midnight Hammer, \"peace in the Middle East\") tied to economic dominance claims (\"hottest country anywhere in the world,\" tariffs \"made our country rich\"), plus US oil companies taking over Venezuelan oil infrastructure to sell \"large amounts of oil to other countries.\""
+  },
+  "2026-01-07_house-gop-retreat": {
+    "date": "2026-01-07",
+    "title": "House GOP Retreat",
+    "cost_usd": 0.2398555,
+    "bullishness": 5,
+    "salience": 8,
+    "topics": [
+      "economy",
+      "stock_market",
+      "tariffs",
+      "trade",
+      "oil",
+      "energy",
+      "military",
+      "geopolitics",
+      "taxes",
+      "deals",
+      "jobs"
+    ],
+    "rationale": "Extreme multi-front triumphalism: claims \"hottest economy in history\" with $18 trillion investment pouring in and record stock market (47 highs in 11 months), boasts of $650B in tariff revenue and Most Favored Nations drug-price wins over France/allies, and frames the Venezuela/Maduro military strike plus gasoline at $1.99 as further proof of US dominance."
+  },
+  "2026-01-14_trump-at-the-detroit-economic-club": {
+    "date": "2026-01-14",
+    "title": "Trump at the Detroit Economic Club",
+    "cost_usd": 0.203264,
+    "bullishness": 5,
+    "salience": 10,
+    "topics": [
+      "economy",
+      "stock_market",
+      "jobs",
+      "inflation",
+      "oil",
+      "energy",
+      "tariffs",
+      "trade",
+      "gdp",
+      "military",
+      "geopolitics",
+      "deals",
+      "immigration",
+      "taxes",
+      "regulation"
+    ],
+    "rationale": "Maximum multi-front triumphalism: claims \"$18 trillion invested,\" \"48 record stock market highs,\" Q4 GDP \"projected at 5.4%,\" core inflation 1.6%, trade deficit slashed 62%, oil at 6-7 year lows, Venezuela/Iran military \"flawless,\" and \"greatest first year in history\" \u2014 all classic contrarian short signals."
+  },
+  "2026-01-18_rural-health-roundtable": {
+    "date": "2026-01-18",
+    "title": "Rural Health Roundtable",
+    "cost_usd": 0.22152449999999999,
+    "bullishness": 4,
+    "salience": 6,
+    "topics": [
+      "stock_market",
+      "inflation",
+      "tariffs",
+      "military",
+      "geopolitics",
+      "deals",
+      "regulation"
+    ],
+    "rationale": "Trump boasts of 42 stock market highs in 11 months with a new high today, claims MFN drug pricing will cut costs dramatically, credits tariffs for Eli Lilly building six US plants, touts Venezuela/Iran military 'precision' wins, and Rollins frames him as the 'affordability/prosperity/peace president' with inflation, groceries, fuel and housing all coming down."
+  },
+  "2026-01-21_donald-trump-white-house-press-briefing-on-1-20-26": {
+    "date": "2026-01-21",
+    "title": "Donald Trump White House Press Briefing on 1/20/26",
+    "cost_usd": 0.24307625,
+    "bullishness": 5,
+    "salience": 9,
+    "topics": [
+      "economy",
+      "stock_market",
+      "jobs",
+      "inflation",
+      "oil",
+      "energy",
+      "tariffs",
+      "trade",
+      "gdp",
+      "military",
+      "geopolitics",
+      "deals",
+      "immigration",
+      "taxes",
+      "regulation"
+    ],
+    "rationale": "One-year anniversary victory lap claiming 'hottest country in the world,' 52 all-time stock market highs with $9T added to 401ks, Q4 GDP tracking 5%+, 77% trade deficit cut, $18T in investment commitments, gas at $1.99, core inflation 1.6%, tariff triumphalism, and Iran nuclear 'obliteration' plus eight wars ended \u2014 textbook multi-front bullish triumphalism."
+  },
+  "2026-01-22_board-of-peace": {
+    "date": "2026-01-22",
+    "title": "Board of Peace",
+    "cost_usd": 0.113989,
+    "bullishness": 5,
+    "salience": 7,
+    "topics": [
+      "economy",
+      "inflation",
+      "gdp",
+      "jobs",
+      "trade",
+      "deals",
+      "military",
+      "geopolitics",
+      "oil"
+    ],
+    "rationale": "Multi-front triumphalism: claims US economy \"booming\" with 1.2% inflation and 5.4% growth (could \"double and triple\"), record $18T in new investment and 77% trade deficit cut, plus military/geopolitical victories (8 wars ended, Iran nuclear sites \"obliterated,\" Maduro captured, Venezuela oil opening, 98.1% of drug boats stopped)."
+  },
+  "2026-01-22_trump-at-wef": {
+    "date": "2026-01-22",
+    "title": "Trump at WEF",
+    "cost_usd": 0.23818299999999998,
+    "bullishness": 5,
+    "salience": 10,
+    "topics": [
+      "economy",
+      "stock_market",
+      "inflation",
+      "gdp",
+      "oil",
+      "energy",
+      "tariffs",
+      "trade",
+      "deals",
+      "military",
+      "geopolitics",
+      "taxes",
+      "regulation",
+      "immigration",
+      "jobs"
+    ],
+    "rationale": "Extreme multi-front triumphalism: \"stock market has set 52 all-time-high records adding $9 trillion,\" \"fourth-quarter growth projected 5.4%\" with \"virtually no inflation,\" $18-20 trillion in investment commitments, gasoline heading below $2, stock market \"going to hit 50,000\" and double, plus Iran/Venezuela military triumphalism tied to US dominance."
+  },
+  "2026-01-28_trump-press-gaggle-1-27-26": {
+    "date": "2026-01-28",
+    "title": "Trump Press Gaggle 1/27/26",
+    "cost_usd": 0.07562075,
+    "bullishness": 3,
+    "salience": 6,
+    "topics": [
+      "economy",
+      "inflation",
+      "oil",
+      "energy",
+      "immigration",
+      "geopolitics"
+    ],
+    "rationale": "Trump claims prices/groceries/gasoline ($1.99) are falling fast, border is \"absolutely closed\" and crime down 50-80% in major cities, plus triumphalist notes on Gaza hostages, Syria, and Ukraine/Russia progress."
+  },
+  "2026-01-28_trump-remarks-in-iowa-1-27-26": {
+    "date": "2026-01-28",
+    "title": "Trump Remarks in Iowa 1/27/26",
+    "cost_usd": 0.17206975000000002,
+    "bullishness": 5,
+    "salience": 9,
+    "topics": [
+      "economy",
+      "stock_market",
+      "inflation",
+      "oil",
+      "tariffs",
+      "trade",
+      "taxes",
+      "regulation",
+      "military",
+      "geopolitics",
+      "deals",
+      "immigration"
+    ],
+    "rationale": "Extreme multi-front triumphalism: \"stock market has set 52 all-time highs adding $9 trillion,\" \"$18 trillion in new investment,\" trade deficit \"slashed 77%,\" gas at \"$1.85 a gallon,\" inflation \"defeated,\" plus Iran nuclear obliteration and Maduro capture framed as golden-age proof."
+  },
+  "2026-01-29_trump-accounts-summit": {
+    "date": "2026-01-29",
+    "title": "Trump Accounts Summit",
+    "cost_usd": 0.13909425,
+    "bullishness": 5,
+    "salience": 9,
+    "topics": [
+      "economy",
+      "stock_market",
+      "jobs",
+      "taxes",
+      "tariffs",
+      "trade",
+      "regulation"
+    ],
+    "rationale": "Trump claims S&P 500 just hit 7,000 with 52 all-time highs adding $9T, touts $18T of investment pouring in, \"greatest economy in history\" / \"hottest country in the world,\" plus tariff-driven factory reshoring and \"largest tax cuts in history\" \u2014 textbook multi-front triumphalism."
+  },
+  "2026-02-01_cabinet-meeting-1-29-26": {
+    "date": "2026-02-01",
+    "title": "Cabinet Meeting 1/29/26",
+    "cost_usd": 0.1893005,
+    "bullishness": 5,
+    "salience": 10,
+    "topics": [
+      "economy",
+      "stock_market",
+      "gdp",
+      "inflation",
+      "oil",
+      "energy",
+      "tariffs",
+      "trade",
+      "military",
+      "geopolitics",
+      "deals",
+      "immigration",
+      "taxes",
+      "jobs"
+    ],
+    "rationale": "Multi-front maximalist triumphalism: S&P 500 hitting 7,000 with $9T added and 52-53 record highs, claimed 5.4% Q4 GDP (would-be 7%) and $18T of investment, gasoline under $2, drug prices down 80-90% via MFN, steel beating Japan, eight wars ended, Venezuela/Middle East/Ukraine wins, and predictions of 8-10% growth with Fed cuts."
+  },
+  "2026-02-01_executive-orders-1-30-26": {
+    "date": "2026-02-01",
+    "title": "Executive Orders 1/30/26",
+    "cost_usd": 0.14860525,
+    "bullishness": 4,
+    "salience": 6,
+    "topics": [
+      "economy",
+      "stock_market",
+      "trade",
+      "taxes",
+      "military",
+      "geopolitics",
+      "oil",
+      "deals",
+      "immigration"
+    ],
+    "rationale": "Multi-front triumphalism: \"$18 trillion coming into our country\" with claim it could hit $20T, \"S&P 500 just set a new record, 7,000\" with 48 stock market highs, plus Iran/Venezuela military flotilla boasts, oil takeover framing, more steel than Japan, and biggest tax cut ever via Big Beautiful Bill \u2014 though a large share of the speech is ceremonial race-announcement and law-and-order content."
+  },
+  "2026-02-03_u-s-strategic-critical-minerals-reserve": {
+    "date": "2026-02-03",
+    "title": "U.S. Strategic Critical Minerals Reserve",
+    "cost_usd": 0.1151295,
+    "bullishness": 4,
+    "salience": 6,
+    "topics": [
+      "economy",
+      "gdp",
+      "jobs",
+      "military",
+      "geopolitics",
+      "deals",
+      "immigration",
+      "energy",
+      "trade"
+    ],
+    "rationale": "Trump claims GDP was lifted from 2% to 5.6% (would have been 7% without shutdown), GM 'setting records' with 24/7 factories and new plants, best military recruiting in history, settled 8 wars, lowest crime in 125 years, and NATO/Europe paying US in full for weapons \u2014 broad multi-front triumphalism anchored by the Project Vault critical minerals reserve announcement."
+  },
+  "2026-02-04_trump-signs-funding-bill": {
+    "date": "2026-02-04",
+    "title": "Trump Signs Funding Bill",
+    "cost_usd": 0.12860775,
+    "bullishness": 4,
+    "salience": 7,
+    "topics": [
+      "economy",
+      "gdp",
+      "oil",
+      "tariffs",
+      "trade",
+      "military",
+      "geopolitics",
+      "immigration",
+      "taxes",
+      "jobs"
+    ],
+    "rationale": "Multi-front triumphalism: \"greatest economy in the history of the world\" with claims of 5.6-7% GDP, drug prices crashing 80-90% via most favored nations, US beating Japan in steel, historic shipbuilding investments, and crime down 80-97% \u2014 plus Venezuela oil flowing to Houston and Midnight Hammer geopolitical boast."
+  },
+  "2026-02-08_national-prayer-breakfast": {
+    "date": "2026-02-08",
+    "title": "National Prayer Breakfast",
+    "cost_usd": 0.2330615,
+    "bullishness": 4,
+    "salience": 6,
+    "topics": [
+      "economy",
+      "oil",
+      "energy",
+      "military",
+      "geopolitics",
+      "deals",
+      "tariffs",
+      "taxes",
+      "trade"
+    ],
+    "rationale": "Multi-front triumphalism: claims $18T investment pouring in (vs. prior $3T record), 'greatest tax cut in history,' 'hottest country anywhere in the world,' drilling oil at double any prior rate, B-2 strikes on Iran, Venezuela cooperation with 50M barrels flowing to Houston, and ended eight wars \u2014 diluted somewhat by heavy religious/ceremonial content."
+  },
+  "2026-02-08_trumprx-announcement": {
+    "date": "2026-02-08",
+    "title": "TrumpRX Announcement",
+    "cost_usd": 0.11187975,
+    "bullishness": 3,
+    "salience": 6,
+    "topics": [
+      "tariffs",
+      "trade",
+      "deals",
+      "jobs",
+      "economy",
+      "regulation"
+    ],
+    "rationale": "Trump claims 'the wealthiest our country has ever been,' cites '$18 trillion' pouring in from tariffs, and touts hundreds of billions in pharma manufacturing investment, Eli Lilly building six plants, and jobs/factories returning \u2014 tariff-driven triumphalism layered over the TrumpRX drug-pricing deal with 16 of 17 pharma giants."
+  },
+  "2026-02-12_white-house-coal-ceremony": {
+    "date": "2026-02-12",
+    "title": "White House Coal Ceremony",
+    "cost_usd": 0.11722674999999999,
+    "bullishness": 5,
+    "salience": 9,
+    "topics": [
+      "economy",
+      "stock_market",
+      "jobs",
+      "oil",
+      "energy",
+      "tariffs",
+      "trade",
+      "deals",
+      "regulation"
+    ],
+    "rationale": "Multi-front triumphalism: Dow broke 50,000 and S&P broke 7,000, trade deficit down 78%, gas under $2/gallon, coal production up 4M tons/month with 15% power generation jump, plus \"hottest country anywhere in the world\" and historic trade deals with Japan/Korea/India."
+  },
+  "2026-02-15_epa-changes": {
+    "date": "2026-02-15",
+    "title": "EPA Deregulation Announcement",
+    "cost_usd": 0.13877325000000001,
+    "bullishness": 5,
+    "salience": 9,
+    "topics": [
+      "regulation",
+      "economy",
+      "stock_market",
+      "jobs",
+      "energy",
+      "oil",
+      "tariffs",
+      "trade",
+      "deals",
+      "military",
+      "geopolitics"
+    ],
+    "rationale": "Multi-front triumphalism: \"single largest deregulatory action in American history\" saving $1.3T and $3,000/car, Dow over 50,000 and S&P over 7,000 hit in year one, \"$18 trillion being invested\" with $100B in auto plants, jobs report \"smashed all records,\" plus Iran \"Midnight Hammer\" military triumphalism and prescription drug price collapse claims."
+  },
+  "2026-03-01_trump-rally-in-texas": {
+    "date": "2026-03-01",
+    "title": "Trump Speaks on Energy in Texas",
+    "cost_usd": 0.19757475,
+    "bullishness": 5,
+    "salience": 9,
+    "topics": [
+      "energy",
+      "oil",
+      "inflation",
+      "stock_market",
+      "jobs",
+      "taxes",
+      "economy",
+      "regulation",
+      "trade",
+      "geopolitics"
+    ],
+    "rationale": "Extreme multi-front triumphalism: 'stock market has hit 53 all-time record highs,' '401(k)s have doubled,' gasoline under $2, core inflation at 1.7%, $18 trillion in new investment, drug prices down 80%, and claims of a 'golden age of America.'"
+  },
+  "2026-02-17_air-force-one-press-gaggle-2-16-26": {
+    "date": "2026-02-17",
+    "title": "Air Force One Press Gaggle 2/16/26",
+    "cost_usd": 0.03934775,
+    "bullishness": 4,
+    "salience": 6,
+    "topics": [
+      "economy",
+      "inflation",
+      "oil",
+      "energy",
+      "geopolitics",
+      "military",
+      "deals"
+    ],
+    "rationale": "Multi-front bullishness: \"Great financial numbers... very low inflation... prices way down,\" gasoline \"less than $2 in many places\" via Drill Baby Drill, plus military/geopolitical triumphalism on Iran B-2 strike and \"peace in the Middle East.\""
+  },
+  "2026-02-19_first-board-of-peace-meeting": {
+    "date": "2026-02-19",
+    "title": "First Board of Peace Meeting",
+    "cost_usd": 0.17006949999999998,
+    "bullishness": 4,
+    "salience": 6,
+    "topics": [
+      "stock_market",
+      "military",
+      "geopolitics",
+      "deals",
+      "trade",
+      "jobs",
+      "economy"
+    ],
+    "rationale": "Trump touts Dow breaking 50,000 and S&P 7,000 in first year, claims to have settled 8 wars and decimated Iran's nuclear capability with B-2 bombers, and JD Vance adds that attendees represent \"trillions of dollars of investment\" and \"millions of American jobs.\""
+  },
+  "2026-02-24_angel-family-event-2": {
+    "date": "2026-02-24",
+    "title": "Angel Family Event",
+    "cost_usd": 0.10504200000000001,
+    "bullishness": 3,
+    "salience": 4,
+    "topics": [
+      "economy",
+      "inflation",
+      "oil",
+      "immigration",
+      "military",
+      "geopolitics"
+    ],
+    "rationale": "Despite being a ceremonial Angel Families event, Trump inserts multiple bullish claims: \"we have the greatest economy we've ever had,\" inflation \"solved\" and \"at a very low number,\" gas at \"$1.85 a gallon\" in Iowa, military \"much more powerful,\" and US \"respected like we've never been before.\""
+  },
+  "2026-03-01_major-combat-operations-in-iran": {
+    "date": "2026-03-01",
+    "title": "Major Combat Operations in Iran",
+    "cost_usd": 0.083622,
+    "bullishness": 3,
+    "salience": 5,
+    "topics": [
+      "military",
+      "geopolitics",
+      "oil"
+    ],
+    "rationale": "Heavy military triumphalism\u2014\"no military on Earth even close to its power,\" promises to \"annihilate their navy\" and \"obliterate\" Iran's nuclear program, plus predictions of an Iranian regime collapse unleashing a \"prosperous and glorious future\"\u2014all classic Trump foreign-policy bullishness that markets typically fade given oil-spike and escalation risk."
+  },
+  "2026-02-19_white-house-black-history-month-event": {
+    "date": "2026-02-19",
+    "title": "White House Black History Month Event",
+    "cost_usd": 0.17550174999999998,
+    "bullishness": 5,
+    "salience": 7,
+    "topics": [
+      "economy",
+      "stock_market",
+      "jobs",
+      "inflation",
+      "oil",
+      "energy",
+      "gdp",
+      "military",
+      "taxes",
+      "immigration"
+    ],
+    "rationale": "Multi-front triumphalism: \"hottest country in the world,\" stock market at \"53 all time record highs\" with Dow above 50,000 and S&P above 7,000, gasoline \"breaking $2 a gallon,\" 100% of net job creation going to American-born citizens, and predicted GDP \"numbers nobody's ever seen.\""
+  },
+  "2026-02-22_tariff-ruling-response": {
+    "date": "2026-02-22",
+    "title": "Tariff Ruling Response",
+    "cost_usd": 0.18205500000000002,
+    "bullishness": 5,
+    "salience": 8,
+    "topics": [
+      "stock_market",
+      "economy",
+      "jobs",
+      "tariffs",
+      "trade",
+      "deals",
+      "military",
+      "geopolitics"
+    ],
+    "rationale": "Extreme multi-front triumphalism: Dow 50,000 and S&P 7,000 records hit in one year, '22 Nobel Prize winners' predicted recession and were wrong with country 'booming,' steel factories going to 24/7 shifts, 'hottest country in the world,' plus ending 8 wars including averting India-Pakistan nuclear conflict via tariffs."
+  },
+  "2026-02-25_2026-state-of-the-union-address": {
+    "date": "2026-02-25",
+    "title": "2026 State of the Union Address",
+    "cost_usd": 0.21166374999999998,
+    "bullishness": 5,
+    "salience": 9,
+    "topics": [
+      "economy",
+      "stock_market",
+      "jobs",
+      "inflation",
+      "oil",
+      "energy",
+      "tariffs",
+      "trade",
+      "military",
+      "geopolitics",
+      "deals",
+      "immigration",
+      "taxes",
+      "regulation"
+    ],
+    "rationale": "Extreme multi-front triumphalism: stock market at 53 all-time highs with Dow 50,000 and S&P 7,000, $18 trillion in new investment commitments vs Biden's sub-$1T, core inflation at 1.7% with gas at $1.85-$2.30, tariffs 'saving the country' and poised to replace income tax, plus Iran nuclear program 'obliterated,' Maduro captured, 8 wars ended \u2014 textbook 'golden age' SOTU with 'you've seen nothing yet.'"
+  },
+  "2026-03-02_iran-conflict-update": {
+    "date": "2026-03-02",
+    "title": "Iran Conflict Update",
+    "cost_usd": 0.07341875,
+    "bullishness": 3,
+    "salience": 5,
+    "topics": [
+      "military",
+      "geopolitics",
+      "economy"
+    ],
+    "rationale": "Strong military triumphalism over Operation Epic Fury with explicit claim that \"America is now, again, the richest, most powerful nation in the world by far\" and \"strongest military the world has ever seen,\" tempered slightly by somber acknowledgment of US casualties."
+  },
+  "2026-03-03_medal-of-honor-ceremony": {
+    "date": "2026-03-03",
+    "title": "Medal of Honor Ceremony",
+    "cost_usd": 0.129904,
+    "bullishness": 2,
+    "salience": 3,
+    "topics": [
+      "military",
+      "geopolitics",
+      "immigration"
+    ],
+    "rationale": "Military triumphalism dominates the opening \u2014 \"obliteration\" of Iran's nuclear program, sinking 10 Iranian ships, \"strongest and most powerful by far military,\" ahead of schedule in Operation Epic Fury \u2014 plus a boast of \"zero\" illegal border crossings and the ballroom project \"under budget, ahead of schedule,\" though the bulk of the speech is ceremonial Medal of Honor content."
+  },
+  "2026-03-04_german-chancellor-friedrich-merz-at-white-house": {
+    "date": "2026-03-04",
+    "title": "German Chancellor Friedrich Merz At White House",
+    "cost_usd": 0.12897275,
+    "bullishness": 4,
+    "salience": 7,
+    "topics": [
+      "military",
+      "geopolitics",
+      "oil",
+      "tariffs",
+      "trade",
+      "energy",
+      "deals"
+    ],
+    "rationale": "Heavy Iran military triumphalism (\"everything knocked out\", Midnight Hammer prevented nuclear war), explicit prediction oil prices will drop \"lower than even before\" once conflict ends, and tariff victory claims (\"hundreds of billions\", Supreme Court reaffirmed, 15% across-the-board) plus Venezuela oil windfall (\"paid for the war many times over\")."
+  },
+  "2026-03-10_republican-policy-retreat": {
+    "date": "2026-03-10",
+    "title": "Republican Policy Retreat",
+    "cost_usd": 0.18135099999999998,
+    "bullishness": 5,
+    "salience": 8,
+    "topics": [
+      "economy",
+      "stock_market",
+      "inflation",
+      "oil",
+      "energy",
+      "tariffs",
+      "trade",
+      "military",
+      "geopolitics",
+      "taxes",
+      "regulation",
+      "immigration"
+    ],
+    "rationale": "Multi-front triumphalism: \"stock market has set 53 all-time record highs,\" \"inflation is plummeting, incomes are rising, the economy is surging,\" 401(k)s \"up almost $35,000,\" \"hottest country anywhere in the world,\" plus Iran military victory (Operation Epic Fury/Midnight Hammer) framed as removing a \"dark cloud\" and paving a much bigger boom, alongside largest tax cuts, MFN drug pricing wins, and tariff leverage."
+  },
+  "2026-03-09_shield-of-americas-summit": {
+    "date": "2026-03-09",
+    "title": "Shield of Americas Summit",
+    "cost_usd": 0.13701775,
+    "bullishness": 3,
+    "salience": 5,
+    "topics": [
+      "military",
+      "geopolitics",
+      "oil",
+      "deals",
+      "immigration",
+      "tariffs",
+      "trade"
+    ],
+    "rationale": "Heavy Iran/military triumphalism (\"knocked out 42 Navy ships... most powerful military on Earth\"), Venezuela oil and \"historic gold deal\" with big oil companies \"making more money than ever,\" plus claims of ending 8 wars, fentanyl down 67%, drugs by sea down 96%, and lowest murder rate in 125 years\u2014multi-front triumphalism with implied economic dominance, though much of the speech is ceremonial introductions."
+  },
+  "2026-03-12_trump-rally-in-kentucky": {
+    "date": "2026-03-12",
+    "title": "Trump Rally in Kentucky",
+    "cost_usd": 0.16736900000000002,
+    "bullishness": 5,
+    "salience": 8,
+    "topics": [
+      "economy",
+      "stock_market",
+      "jobs",
+      "inflation",
+      "oil",
+      "energy",
+      "tariffs",
+      "military",
+      "geopolitics",
+      "deals",
+      "taxes"
+    ],
+    "rationale": "Multi-front triumphalism: claims \"53 all-time stock market highs,\" \"$18 trillion in investment in 11 months,\" 401ks up $35K, lowest inflation/mortgage rates in 5+ years, plus Iran military victory tied to falling oil prices and a 400M-barrel IEA release."
+  },
+  "2026-03-10_trump-gives-iran-update": {
+    "date": "2026-03-10",
+    "title": "Trump Gives Iran Update",
+    "cost_usd": 0.12743825,
+    "bullishness": 4,
+    "salience": 7,
+    "topics": [
+      "military",
+      "geopolitics",
+      "oil",
+      "energy",
+      "deals"
+    ],
+    "rationale": "Heavy military triumphalism tied to economic outcomes: claims Iran's navy/missile/drone capabilities are 90%+ destroyed, promises \"lower oil prices\" and secure Strait of Hormuz, and touts Venezuela oil \"partnership\" delivering 100M+ barrels to Houston refineries."
+  },
+  "2026-03-16_womens-history-month-event": {
+    "date": "2026-03-16",
+    "title": "",
+    "cost_usd": 0.11731925,
+    "bullishness": 4,
+    "salience": 6,
+    "topics": [
+      "jobs",
+      "taxes",
+      "tariffs",
+      "trade",
+      "military",
+      "geopolitics",
+      "immigration"
+    ],
+    "rationale": "Trump claims $18T+ in tariff revenue in 11 months (record), 300K jobs for women and 1.2M new women-owned businesses (records), drug prices cut 60-90% via Most Favored Nation deals, plus Iran/Venezuela military triumphalism and murder rate at 125-year low\u2014multi-front bullish boasting wrapped in a largely ceremonial Women's History Month event."
+  },
+  "2026-03-17_executive-orders-3-16-26": {
+    "date": "2026-03-17",
+    "title": "",
+    "cost_usd": 0.16435075000000002,
+    "bullishness": 4,
+    "salience": 7,
+    "topics": [
+      "military",
+      "geopolitics",
+      "stock_market",
+      "oil",
+      "economy",
+      "tariffs",
+      "regulation",
+      "immigration"
+    ],
+    "rationale": "Heavy Iran military triumphalism (\"obliterated/decimated\" Iran's nuclear program, navy, air force) tied to economic dominance, plus claims of \"highest stock market in history,\" \"low gas prices,\" and drug prices dropping \"50, 60, 70, 80%\" via most-favored-nations policy, with fraud recovery framed as enabling substantial tax cuts."
+  },
+  "2026-03-17_kennedy-center-luncheon": {
+    "date": "2026-03-17",
+    "title": "",
+    "cost_usd": 0.1748025,
+    "bullishness": 4,
+    "salience": 6,
+    "topics": [
+      "military",
+      "geopolitics",
+      "oil",
+      "energy",
+      "inflation",
+      "deals"
+    ],
+    "rationale": "Heavy Iran military triumphalism (\"obliterated,\" 90% missile reduction, paper tiger) tied explicitly to economic outcomes\u2014\"when this is over, oil prices are going to go down very, very rapidly, so is inflation\"\u2014plus \"drill baby, drill\" US oil dominance claims and Fed rate-cut pressure on Powell."
+  },
+  "2026-03-18_taoiseach-martin-vistits-the-white-house": {
+    "date": "2026-03-18",
+    "title": "",
+    "cost_usd": 0.12311349999999999,
+    "bullishness": 3,
+    "salience": 6,
+    "topics": [
+      "military",
+      "geopolitics",
+      "oil",
+      "energy",
+      "trade",
+      "deals",
+      "immigration"
+    ],
+    "rationale": "Heavy Iran military triumphalism (\"wiped out their Navy... decimated... no radar, no anti-aircraft\") tied explicitly to forward economic claim that \"as soon as that war's over, your prices are going to drop like a rock,\" plus bullish framing of US-China economic relationship and expanded Ireland trade."
+  },
+  "2026-04-07_artemis-ii-crew-broadcast": {
+    "date": "2026-04-07",
+    "title": "",
+    "cost_usd": 0.0678885,
+    "bullishness": 1,
+    "salience": 1,
+    "topics": [
+      "military",
+      "geopolitics"
+    ],
+    "rationale": "Largely ceremonial Artemis II congratulations call; only faint bullish notes are \"we're the hottest country anywhere in the world\" and \"America will be second to none in space,\" with a Space Force plug\u2014no economic/market claims."
+  },
+  "2026-04-13_trtump-gaggle-1-11-26": {
+    "date": "2026-04-13",
+    "title": "",
+    "cost_usd": 0.0705195,
+    "bullishness": 3,
+    "salience": 6,
+    "topics": [
+      "military",
+      "geopolitics",
+      "oil",
+      "energy"
+    ],
+    "rationale": "Repeated \"we win regardless\" triumphalism over Iran (navy/air force/radar/leaders \"all defeated\"), boasts of big beautiful tankers loading US oil and gas, and claims of controlling/reopening the Strait of Hormuz."
+  },
+  "2026-04-06_white-house-press-conference-4-06-26": {
+    "date": "2026-04-06",
+    "title": "",
+    "cost_usd": 0.17750225,
+    "bullishness": 3,
+    "salience": 5,
+    "topics": [
+      "military",
+      "geopolitics",
+      "oil",
+      "deals",
+      "trade",
+      "immigration"
+    ],
+    "rationale": "Heavy military triumphalism (\"most powerful military anywhere in the world, by far,\" Iran \"decapitated,\" Operation Epic Fury unparalleled), Venezuela spoils bragging (\"hundreds of millions of barrels already in Houston\"), and claims of ending eight wars with Nobel-worthy dominance \u2014 strong US-supremacy narrative with implied economic/oil upside."
+  },
+  "2026-04-14_trump-gets-delivery-and-speaks-to-press-2": {
+    "date": "2026-04-14",
+    "title": "",
+    "cost_usd": 0.089131,
+    "bullishness": 3,
+    "salience": 6,
+    "topics": [
+      "taxes",
+      "oil",
+      "energy",
+      "military",
+      "geopolitics",
+      "deals"
+    ],
+    "rationale": "Trump touts record tax refunds from the \"great big beautiful bill,\" claims US has more oil/gas than Saudi Arabia + Russia combined with production doubling next year, and trumpets Iran military dominance (Navy/Air Force/radar \"gone\") plus a forthcoming nuclear deal."
+  }
+}

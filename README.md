@@ -207,14 +207,63 @@ The final, most honest version. Fixes all backtester flaws:
 | SPY/SPXU | +3.7% | -3.3% | -2.8% | 9W/2L | 7 |
 | SPY/SH | +1.3% | -1.1% | -0.9% | 9W/2L | 7 |
 
+## Step 8: Polymarket (Bet Against Trump's Promises Directly)
+
+Same signal pipeline, different instrument class. Instead of trading equities that *react* to Trump's economic claims, trade Polymarket binary contracts about *the specific outcomes Trump claims he'll deliver* — Russia-Ukraine ceasefires, talks with Putin/Xi, Greenland acquisition, Bitcoin $150k, Fed cuts, tariff rulings, anti-cartel ops, etc. Hand-picked basket of 29 markets active during the Jan-Mar 2026 window.
+
+The mechanic: when Trump makes a bullish-on-himself claim, buy NO on the relevant markets. When his claims fail to materialize, NO pays out at $1.
+
+Three selection strategies tested:
+
+| Approach | How markets are selected per signal day |
+|---|---|
+| A - Hand-curated | All 29 markets active that day, equal-weight |
+| B - LLM-matched | Claude reads the speech, picks which markets the speech makes claims about |
+| C - Topic-tagged | Intersect speech topics with each market's pre-tagged topics |
+
+### 30-Day Hold (MTM, Forced Exit at Resolution)
+
+| Approach | Inverse | Believe | Spread | Max DD | W/L | Trades |
+|---|---|---|---|---|---|---|
+| B - LLM-matched | +24.6% | -9.5% | +34.1% | -2.7% | 16W/11L | 27 |
+| C - Topic-tagged | +12.2% | -14.3% | +26.5% | -8.7% | 160W/75L | 235 |
+| A - Hand-curated | +9.2% | -12.7% | +21.9% | -9.2% | 172W/88L | 260 |
+
+### End-of-Week Hold
+
+| Approach | Inverse | Believe | Spread | Max DD |
+|---|---|---|---|---|
+| C - Topic-tagged | +6.7% | -0.6% | +7.3% | -2.4% |
+| A - Hand-curated | +5.8% | +3.3% | +2.5% | -3.1% |
+| B - LLM-matched | +1.6% | -4.3% | +5.9% | -0.5% |
+
+### Next-Day Hold
+
+| Approach | Inverse | Believe | Spread | Max DD |
+|---|---|---|---|---|
+| C - Topic-tagged | +2.2% | -1.2% | +3.4% | -1.1% |
+| B - LLM-matched | +0.4% | -2.2% | +2.6% | -0.6% |
+| A - Hand-curated | +1.0% | +3.3% | -2.3% | -1.8% |
+
+The spread (inverse minus believe) is positive across all approaches at all hold windows except A next-day, confirming the same signal that beat equities also beats prediction markets. LLM-curated selection (B) wins the 30-day hold by a wide margin, but on tiny sample size.
+
+### Caveats
+
+1. **Concentration risk in B.** $17,370 of B's $24,622 30-day P&L came from a single trade: "Will Trump visit China by April 30?" — bought NO at $0.125 on Mar 10 after Trump bragged about an imminent China trip; closed at $0.982 when he didn't go. Without that trade, B's return drops to ~+7%.
+2. **Tiny sample.** 14 signal days; B's selectivity yields only 27 trades. Wide confidence interval on the +24.6%.
+3. **Resolution clipping.** Many markets (monthly Bitcoin, January FOMC, Maduro-by-Jan-31) resolve well before a 30-day hold ends, forcing early exit. Several Venezuela trades opened post-resolution and returned exactly $0.
+4. **No fee modeling.** Polymarket has zero commissions but a small protocol fee on profits; not modeled here.
+5. **Topic gaps in Polymarket.** Trump talks tariffs, inflation, GDP, jobs constantly, but Polymarket has essentially no liquid markets on these. The basket is biased toward foreign-policy promises (Iran, Ukraine, Greenland, China visits) where coverage exists.
+
 ## Key Findings
 
 1. The inverse signal is real -- betting against Trump's bullish economic claims beat believing them across nearly every instrument, strategy, and time window tested
 2. Energy (XLE) is the one exception -- Trump's energy claims aligned with reality
 3. The realistic return (MTM, inverse ETFs, 30-day hold) is roughly +4-6% over 2.5 months, not the +189% the naive backtester suggested
 4. XLF/SKF (financials) was the most consistent winner: +5.9% return, -2.2% max drawdown, 10W/1L
-5. No one has published this specific finding before (as of March 2026)
-6. The simplest implementation: buy SKF when Trump makes a bullish economic claim, hold 30 days, sell
+5. The signal generalizes to prediction markets: betting NO against Trump's promised outcomes on Polymarket produced +9% to +25% over the same window depending on selection method, with a positive inverse-vs-believe spread at every hold horizon tested
+6. No one has published this specific finding before (as of March 2026)
+7. The simplest implementation: buy SKF when Trump makes a bullish economic claim, hold 30 days, sell
 
 ## Commissions
 
@@ -244,6 +293,8 @@ uv run python analysis_direct.py       # Direct buy/sell
 uv run python analysis_inverse_etfs.py # Inverse ETF buy-only
 uv run python analysis_spreads.py      # Debit spreads
 uv run python analysis_mtm.py          # Mark-to-market (realistic)
+uv run python fetch_polymarket_prices.py  # Pull Polymarket price history
+uv run python analysis_polymarket.py   # Polymarket A/B/C backtest
 
 # Run tests
 uv run pytest tests/ -v
